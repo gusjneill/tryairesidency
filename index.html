@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Residency — Hire AI Specialists On Demand</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f2ec;
+    --cream: #f0ece3;
+    --accent: #c8f04d;
+    --accent-dark: #a3cc2a;
+    --mid: #2a2a2a;
+    --muted: #888;
+    --card-bg: #141414;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800; font-size: 1.4rem; letter-spacing: -0.02em;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .logo span { color: var(--accent); }
+  nav ul { list-style: none; display: flex; gap: 2rem; }
+  nav ul a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+  nav ul a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--accent); color: var(--black);
+    border: none; padding: 0.55rem 1.3rem; border-radius: 100px;
+    font-weight: 600; font-size: 0.88rem; cursor: pointer;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--accent-dark); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 8rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -30%; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(200,240,77,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(200,240,77,0.1); border: 1px solid rgba(200,240,77,0.25);
+    color: var(--accent); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.05em;
+    padding: 0.35rem 1rem; border-radius: 100px; margin-bottom: 2rem;
+    text-transform: uppercase;
+  }
+  .hero-tag::before { content: '●'; font-size: 0.5rem; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 800; line-height: 1.0;
+    letter-spacing: -0.04em;
+    max-width: 900px;
+    margin-bottom: 1.5rem;
+  }
+  h1 em { color: var(--accent); font-style: normal; }
+  .hero-sub {
+    font-size: 1.15rem; color: #aaa; max-width: 520px;
+    margin: 0 auto 3rem; font-weight: 300; line-height: 1.7;
+  }
+  .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--accent); color: var(--black);
+    border: none; padding: 0.9rem 2.2rem; border-radius: 100px;
+    font-weight: 600; font-size: 1rem; cursor: pointer;
+    text-decoration: none; transition: all 0.2s; display: inline-block;
+  }
+  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent; color: var(--white);
+    border: 1px solid rgba(255,255,255,0.25); padding: 0.9rem 2.2rem; border-radius: 100px;
+    font-weight: 500; font-size: 1rem; cursor: pointer;
+    text-decoration: none; transition: all 0.2s; display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.05); }
+
+  .hero-stats {
+    display: flex; gap: 4rem; justify-content: center; margin-top: 5rem;
+    padding-top: 3rem; border-top: 1px solid var(--border);
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.2rem; font-weight: 700; color: var(--accent);
+    display: block;
+  }
+  .stat-label { font-size: 0.85rem; color: var(--muted); }
+
+  /* SECTION BASICS */
+  section { padding: 6rem 4rem; max-width: 1100px; margin: 0 auto; }
+  .section-tag {
+    font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--accent); font-weight: 600; margin-bottom: 1rem;
+  }
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem); font-weight: 700;
+    letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 1.2rem;
+  }
+  .section-sub { color: #888; font-size: 1rem; max-width: 480px; line-height: 1.7; margin-bottom: 3.5rem; }
+
+  /* HOW IT WORKS */
+  .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .step { background: var(--card-bg); padding: 2.5rem 2rem; position: relative; }
+  .step-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 3.5rem; font-weight: 800; color: rgba(200,240,77,0.12);
+    line-height: 1; margin-bottom: 1rem; display: block;
+  }
+  .step h3 { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .step p { color: #888; font-size: 0.92rem; line-height: 1.6; }
+  .step-accent { position: absolute; top: 2rem; right: 2rem; color: var(--accent); font-size: 1.2rem; }
+
+  /* FOR WHO */
+  .for-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .for-card {
+    background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px;
+    padding: 2.5rem;
+  }
+  .for-card.accent-card { border-color: rgba(200,240,77,0.3); }
+  .for-icon { font-size: 2rem; margin-bottom: 1.2rem; }
+  .for-card h3 { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.8rem; }
+  .for-card p { color: #888; font-size: 0.92rem; line-height: 1.7; margin-bottom: 1.5rem; }
+  .for-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .for-card ul li { font-size: 0.88rem; color: #aaa; display: flex; align-items: center; gap: 0.6rem; }
+  .for-card ul li::before { content: '→'; color: var(--accent); font-size: 0.9rem; }
+
+  /* CANDIDATES */
+  .candidates-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; }
+  .candidate-card {
+    background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px;
+    padding: 1.8rem; transition: border-color 0.2s;
+  }
+  .candidate-card:hover { border-color: rgba(200,240,77,0.3); }
+  .avatar {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: linear-gradient(135deg, #2a2a2a, #3a3a3a);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem;
+    color: var(--accent); margin-bottom: 1rem; border: 1px solid var(--border);
+  }
+  .candidate-name { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.2rem; }
+  .candidate-title { font-size: 0.82rem; color: var(--muted); margin-bottom: 1rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.2rem; }
+  .tag {
+    background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+    font-size: 0.75rem; padding: 0.2rem 0.65rem; border-radius: 100px; color: #aaa;
+  }
+  .candidate-meta { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 0.5rem; }
+  .rate { font-family: 'Syne', sans-serif; font-size: 0.88rem; font-weight: 600; color: var(--accent); }
+  .avail { font-size: 0.78rem; color: var(--muted); }
+  .avail-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); margin-right: 0.3rem; }
+
+  /* OUTBOUND SECTION */
+  .outbound-box {
+    background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px;
+    padding: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+  }
+  .outbound-box h3 { font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
+  .outbound-box p { color: #888; font-size: 0.95rem; line-height: 1.7; }
+  .sample-email {
+    background: #0f0f0f; border: 1px solid var(--border); border-radius: 12px;
+    padding: 1.5rem; font-size: 0.85rem;
+  }
+  .email-header { color: var(--muted); margin-bottom: 1rem; font-size: 0.8rem; display: flex; flex-direction: column; gap: 0.3rem; }
+  .email-header span { color: #ccc; }
+  .email-body { color: #bbb; line-height: 1.8; }
+  .email-body strong { color: var(--white); }
+  .email-attach {
+    margin-top: 1rem; padding: 0.75rem 1rem;
+    background: rgba(200,240,77,0.07); border: 1px solid rgba(200,240,77,0.2);
+    border-radius: 8px; font-size: 0.8rem; color: var(--accent); display: flex; align-items: center; gap: 0.5rem;
+  }
+
+  /* FORM SECTION */
+  .form-section { background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 4rem; }
+  .form-tabs { display: flex; gap: 0; margin-bottom: 2.5rem; background: rgba(255,255,255,0.04); border-radius: 100px; padding: 4px; width: fit-content; }
+  .form-tab {
+    padding: 0.55rem 1.5rem; border-radius: 100px; font-size: 0.88rem; font-weight: 500;
+    cursor: pointer; transition: all 0.2s; border: none; background: transparent; color: var(--muted);
+  }
+  .form-tab.active { background: var(--accent); color: var(--black); font-weight: 600; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group.full { grid-column: 1/-1; }
+  label { font-size: 0.82rem; color: var(--muted); font-weight: 500; }
+  input, select, textarea {
+    background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+    color: var(--white); padding: 0.75rem 1rem; border-radius: 10px;
+    font-family: 'DM Sans', sans-serif; font-size: 0.92rem;
+    transition: border-color 0.2s; outline: none; width: 100%;
+  }
+  input:focus, select:focus, textarea:focus { border-color: rgba(200,240,77,0.5); }
+  textarea { resize: none; height: 100px; }
+  select option { background: #1a1a1a; }
+  .form-submit { margin-top: 1.5rem; }
+  .form-submit .btn-primary { width: 100%; text-align: center; font-size: 1rem; padding: 1rem; }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 3rem 4rem;
+    display: flex; justify-content: space-between; align-items: center;
+    color: var(--muted); font-size: 0.85rem;
+  }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--white); }
+
+  /* DIVIDER */
+  .full-bleed { max-width: 100%; padding: 0; }
+  .section-divider { border: none; border-top: 1px solid var(--border); margin: 0 4rem; }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    nav ul { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .steps, .for-grid, .candidates-grid, .form-grid, .outbound-box { grid-template-columns: 1fr; }
+    h1 { font-size: 2.8rem; }
+    .hero-stats { gap: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">AI<span>Residency</span></a>
+  <ul>
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#candidates">Candidates</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get started</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Now placing AI specialists</div>
+  <h1>Your company needs<br><em>AI talent.</em><br>We have them.</h1>
+  <p class="hero-sub">Hire a trained AI specialist for 1–3 months. They'll embed in your team, build real use cases, and leave your people actually knowing how to use AI.</p>
+  <div class="hero-ctas">
+    <a href="#contact" class="btn-primary">Hire an AI Specialist</a>
+    <a href="#contact" class="btn-outline">Join as a Candidate</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <span class="stat-num">1–3</span>
+      <span class="stat-label">Month engagements</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">$800+</span>
+      <span class="stat-label">Day rate from</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">48h</span>
+      <span class="stat-label">To placement</span>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <p class="section-tag">How it works</p>
+  <h2>Simple. Fast.<br>Actually useful.</h2>
+  <p class="section-sub">No lengthy procurement. No consultancy bloat. Just the right person, in your team, getting things done.</p>
+
+  <div class="steps">
+    <div class="step">
+      <span class="step-num">01</span>
+      <h3>Tell us what you need</h3>
+      <p>Share your industry, team size, and what you're trying to achieve with AI. We'll scope the right engagement.</p>
+    </div>
+    <div class="step">
+      <span class="step-num">02</span>
+      <h3>Meet your specialist</h3>
+      <p>We match you with a vetted AI specialist from our network. You see their background, past use cases, and day rate upfront.</p>
+    </div>
+    <div class="step">
+      <span class="step-num">03</span>
+      <h3>They embed. Things get built.</h3>
+      <p>Your specialist joins your team, identifies quick wins, builds real use cases, and upskills your people as they go.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- FOR WHO -->
+<section>
+  <p class="section-tag">Who it's for</p>
+  <h2>Both sides of<br>the equation.</h2>
+
+  <div class="for-grid">
+    <div class="for-card accent-card">
+      <div class="for-icon">🏢</div>
+      <h3>For companies</h3>
+      <p>You know AI matters but don't know where to start in your specific context. A full-time hire feels too risky. Consultants are too expensive and too generic.</p>
+      <ul>
+        <li>Get industry-specific AI use cases built</li>
+        <li>Upskill existing staff on ChatGPT, Claude, Gemini</li>
+        <li>Pay a fixed weekly rate, no lock-in</li>
+        <li>Cancel or extend with 2 weeks notice</li>
+      </ul>
+    </div>
+    <div class="for-card">
+      <div class="for-icon">🎓</div>
+      <h3>For AI specialists</h3>
+      <p>You're a student or recent grad with real AI skills. You want paid experience that counts — not another internship making coffee.</p>
+      <ul>
+        <li>Short stints that fit around study</li>
+        <li>Real projects, real impact</li>
+        <li>Competitive day rates</li>
+        <li>Build your portfolio fast</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- CANDIDATES -->
+<section id="candidates">
+  <p class="section-tag">Featured candidates</p>
+  <h2>Available<br>this month.</h2>
+  <p class="section-sub">Each specialist is interviewed and vetted. What you see is what you get.</p>
+
+  <div class="candidates-grid">
+    <div class="candidate-card">
+      <div class="avatar">AS</div>
+      <div class="candidate-name">Alex S.</div>
+      <div class="candidate-title">AI Implementation Specialist · Sydney</div>
+      <div class="tags">
+        <span class="tag">ChatGPT</span><span class="tag">Claude</span><span class="tag">Python</span><span class="tag">Automation</span>
+      </div>
+      <div class="candidate-meta">
+        <span class="rate">$900/day</span>
+        <span class="avail"><span class="avail-dot"></span>Available now</span>
+      </div>
+    </div>
+    <div class="candidate-card">
+      <div class="avatar">JL</div>
+      <div class="candidate-name">Jamie L.</div>
+      <div class="candidate-title">LLM Engineer · Melbourne</div>
+      <div class="tags">
+        <span class="tag">Gemini</span><span class="tag">RAG</span><span class="tag">Fine-tuning</span><span class="tag">APIs</span>
+      </div>
+      <div class="candidate-meta">
+        <span class="rate">$1,100/day</span>
+        <span class="avail"><span class="avail-dot"></span>Available now</span>
+      </div>
+    </div>
+    <div class="candidate-card">
+      <div class="avatar">MR</div>
+      <div class="candidate-name">Morgan R.</div>
+      <div class="candidate-title">AI Trainer & Prompt Engineer · Remote</div>
+      <div class="tags">
+        <span class="tag">Prompt Eng.</span><span class="tag">Training</span><span class="tag">Workflows</span>
+      </div>
+      <div class="candidate-meta">
+        <span class="rate">$800/day</span>
+        <span class="avail" style="color: #f0a050;"><span class="avail-dot" style="background:#f0a050;"></span>Available Jun</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- OUTBOUND IDEA -->
+<section>
+  <p class="section-tag">Our approach</p>
+  <h2>We don't pitch<br>resumes. We pitch<br><em style="color:var(--accent); font-style:normal;">proof.</em></h2>
+  <div class="outbound-box">
+    <div>
+      <h3>See the work. Then hire the person who did it.</h3>
+      <p>When we reach out to companies, we send them an AI use case built specifically for their industry — a working model, a workflow, a prototype. If they like what they see, we introduce the specialist who built it.</p>
+    </div>
+    <div>
+      <div class="sample-email">
+        <div class="email-header">
+          <span>To: <span>sarah@acmecorp.com</span></span>
+          <span>From: <span>team@tryairesidency.com</span></span>
+          <span>Subject: <span>We built something for retail ops teams like yours</span></span>
+        </div>
+        <div class="email-body">
+          Hi Sarah — <strong>we built a demand forecasting model</strong> using your publicly available product mix and a bit of prompt engineering. Attached.<br><br>
+          One of our AI specialists built this in about 4 hours. She's available for a 6-week engagement at <strong>$900/day</strong>. Want to see what she'd build if she had access to your actual data?
+        </div>
+        <div class="email-attach">📎 acmecorp_demand_model_v1.xlsx</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- CONTACT / BOOK -->
+<section id="contact">
+  <p class="section-tag">Get started</p>
+  <h2>Let's talk.</h2>
+  <p class="section-sub">Whether you're looking to hire or looking for your next placement — drop your details and we'll be in touch within 24 hours.</p>
+
+  <div class="form-section">
+    <div class="form-tabs">
+      <button class="form-tab active" onclick="switchTab(this, 'hire')">I want to hire</button>
+      <button class="form-tab" onclick="switchTab(this, 'join')">I want to join</button>
+    </div>
+
+    <div id="hire-form">
+      <div class="form-grid">
+        <div class="form-group"><label>Company name</label><input type="text" placeholder="Acme Corp"></div>
+        <div class="form-group"><label>Your name</label><input type="text" placeholder="Sarah Chen"></div>
+        <div class="form-group"><label>Work email</label><input type="email" placeholder="sarah@acmecorp.com"></div>
+        <div class="form-group"><label>Industry</label>
+          <select>
+            <option value="">Select industry...</option>
+            <option>Financial Services</option><option>Retail & E-commerce</option>
+            <option>Healthcare</option><option>Technology</option>
+            <option>Logistics & Supply Chain</option><option>Professional Services</option>
+            <option>Energy & Mining</option><option>Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Engagement length</label>
+          <select>
+            <option>1 month</option><option>2 months</option><option>3 months</option><option>Flexible</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Budget (day rate)</label>
+          <select>
+            <option>$800–$1,000/day</option><option>$1,000–$1,400/day</option>
+            <option>$1,400–$2,000/day</option><option>$2,000+/day</option>
+          </select>
+        </div>
+        <div class="form-group full"><label>What are you trying to achieve with AI?</label>
+          <textarea placeholder="E.g. We want to automate our reporting, build internal tools, or train staff on using AI in our workflows..."></textarea>
+        </div>
+      </div>
+      <div class="form-submit"><a href="#" class="btn-primary" onclick="return false;">Book a call →</a></div>
+    </div>
+
+    <div id="join-form" style="display:none;">
+      <div class="form-grid">
+        <div class="form-group"><label>Full name</label><input type="text" placeholder="Alex Smith"></div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="alex@email.com"></div>
+        <div class="form-group"><label>Location</label><input type="text" placeholder="Sydney, NSW"></div>
+        <div class="form-group"><label>Availability</label>
+          <select>
+            <option>Available immediately</option><option>Available in 2 weeks</option>
+            <option>Available next month</option><option>Just exploring</option>
+          </select>
+        </div>
+        <div class="form-group full"><label>LinkedIn or portfolio URL</label><input type="url" placeholder="https://linkedin.com/in/your-name"></div>
+        <div class="form-group full"><label>Tell us about your AI experience</label>
+          <textarea placeholder="What tools do you work with? What have you built? What industries have you worked in?"></textarea>
+        </div>
+      </div>
+      <div class="form-submit"><a href="#" class="btn-primary" onclick="return false;">Apply to join →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="logo">AI<span style="color:var(--accent)">Residency</span></a>
+  <span>© 2025 AI Residency · Sydney, Australia</span>
+  <span>All rates subject to placement fees</span>
+</footer>
+
+<script>
+function switchTab(btn, form) {
+  document.querySelectorAll('.form-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('hire-form').style.display = form === 'hire' ? 'block' : 'none';
+  document.getElementById('join-form').style.display = form === 'join' ? 'block' : 'none';
+}
+</script>
+</body>
+</html>
