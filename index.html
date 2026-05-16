@@ -266,8 +266,13 @@
     margin-bottom: 0.2rem; letter-spacing: -0.01em;
   }
   .candidate-title {
-    font-size: 0.82rem; color: var(--ink-muted);
-    margin-bottom: 1rem;
+    font-size: 0.8rem; color: var(--ink-muted);
+    margin-bottom: 0.6rem; font-weight: 500;
+  }
+  .candidate-bio {
+    font-size: 0.82rem; color: var(--ink-soft);
+    line-height: 1.5; margin-bottom: 1rem;
+    min-height: 2.5em;
   }
   .tags {
     display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.2rem;
@@ -278,7 +283,7 @@
     color: var(--accent); font-weight: 500;
   }
   .candidate-meta {
-    display: flex; justify-content: space-between; align-items: center;
+    display: flex; justify-content: flex-end; align-items: center;
     border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 0.5rem;
   }
   .rate {
@@ -295,40 +300,147 @@
   .avail.soon { color: #b45309; }
   .avail.soon .avail-dot { background: #d97706; }
 
-  /* OUTBOUND IDEA */
-  .outbound-box {
-    background: var(--surface); border: 1px solid var(--line); border-radius: 22px;
-    padding: 3rem; display: grid; grid-template-columns: 1fr 1.1fr; gap: 3rem;
-    align-items: center;
+  /* LOGOS SECTION */
+  .logos-section {
+    padding: 3rem 3rem; max-width: 1100px; margin: 0 auto;
+    border-bottom: 1px solid var(--line);
+    text-align: center;
   }
-  .outbound-box h3 {
+  .logos-row {
+    display: flex; align-items: center; justify-content: center;
+    gap: 3.5rem; flex-wrap: wrap; opacity: 0.7;
+    margin-top: 1.5rem;
+  }
+  .logo-item {
+    color: var(--ink); font-weight: 600;
+    letter-spacing: -0.01em;
+    transition: opacity 0.2s;
+  }
+
+  /* TESTIMONIAL */
+  .testimonial-card {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 22px; padding: 3rem;
+    max-width: 720px; margin: 0 auto;
+  }
+  .testimonial-mark {
     font-family: 'Instrument Serif', serif;
-    font-size: 1.9rem; font-weight: 400; margin-bottom: 1rem;
-    line-height: 1.15; letter-spacing: -0.01em;
+    font-size: 4rem; line-height: 0.5; color: var(--accent);
+    margin-bottom: 1rem; display: block;
   }
-  .outbound-box p {
-    color: var(--ink-soft); font-size: 0.98rem; line-height: 1.65;
+  .testimonial-quote {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.45rem; line-height: 1.4; color: var(--ink);
+    margin-bottom: 2rem; font-weight: 400; letter-spacing: -0.01em;
   }
-  .sample-email {
+  .testimonial-author {
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .testimonial-author img {
+    width: 48px; height: 48px; border-radius: 50%; object-fit: cover;
+  }
+  .testimonial-name { font-weight: 600; font-size: 0.95rem; }
+  .testimonial-role { font-size: 0.83rem; color: var(--ink-muted); }
+
+  /* DEMO CARD */
+  .demo-card {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 22px; padding: 2rem;
+    max-width: 720px; margin: 0 auto;
+  }
+  .demo-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 1.5rem; padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .demo-title { font-weight: 600; font-size: 0.98rem; }
+  .demo-sub { font-size: 0.8rem; color: var(--ink-muted); margin-top: 0.15rem; }
+  .demo-badge {
+    font-size: 0.72rem; background: var(--accent-soft); color: var(--accent);
+    padding: 0.3rem 0.8rem; border-radius: 100px; font-weight: 500;
+  }
+  .demo-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    margin-bottom: 1.3rem;
+  }
+  .demo-label {
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--ink-muted); margin-bottom: 0.7rem; font-weight: 600;
+  }
+  .ticket-col {
+    display: flex; flex-direction: column; gap: 0.5rem;
+    min-height: 340px;
+  }
+  .empty-state {
+    background: var(--bg); border: 1px dashed var(--line-strong);
+    border-radius: 10px; padding: 2rem 1rem; text-align: center;
+    color: var(--ink-muted); font-size: 0.82rem; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .ticket-in {
     background: var(--bg); border: 1px solid var(--line);
-    border-radius: 14px; padding: 1.5rem; font-size: 0.85rem;
+    border-radius: 10px; padding: 0.7rem 0.85rem;
+    font-size: 0.78rem; line-height: 1.45; color: var(--ink-soft);
+    transition: all 0.3s;
   }
-  .email-header {
-    color: var(--ink-muted); margin-bottom: 1rem; font-size: 0.78rem;
-    display: flex; flex-direction: column; gap: 0.25rem;
-    padding-bottom: 0.8rem; border-bottom: 1px solid var(--line);
+  .ticket-in.processing {
+    border-color: var(--accent); background: var(--accent-soft);
   }
-  .email-header span span { color: var(--ink); }
-  .email-body {
-    color: var(--ink-soft); line-height: 1.7;
+  .ticket-out {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 10px; padding: 0.7rem 0.85rem; font-size: 0.78rem;
+    opacity: 0; transform: translateY(8px); transition: all 0.4s;
   }
-  .email-body strong { color: var(--ink); font-weight: 600; }
-  .email-attach {
-    margin-top: 1rem; padding: 0.7rem 0.9rem;
-    background: var(--accent-soft); border: 1px solid rgba(255,91,31,0.2);
-    border-radius: 8px; font-size: 0.78rem; color: var(--accent);
-    display: flex; align-items: center; gap: 0.5rem; font-weight: 500;
+  .ticket-out.show { opacity: 1; transform: translateY(0); }
+  .ticket-out .ticket-meta {
+    display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.35rem;
   }
+  .ticket-out .ticket-preview {
+    color: var(--ink-soft); font-size: 0.74rem; line-height: 1.4;
+  }
+  .ticket-badge {
+    font-size: 0.66rem; padding: 0.2rem 0.5rem; border-radius: 100px;
+    font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em;
+  }
+  .ticket-badge.urgent { background: #fee2e2; color: #991b1b; }
+  .ticket-badge.high { background: #ffedd5; color: #9a3412; }
+  .ticket-badge.med { background: #fef3c7; color: #854d0e; }
+  .ticket-badge.low { background: #dcfce7; color: #166534; }
+  .ticket-category { font-size: 0.72rem; color: var(--ink-muted); margin-left: auto; }
+  .demo-btn {
+    width: 100%; background: var(--ink); color: var(--bg);
+    border: none; padding: 0.85rem; border-radius: 100px;
+    font-weight: 500; font-size: 0.95rem; cursor: pointer;
+    font-family: 'Inter', sans-serif; transition: all 0.2s;
+  }
+  .demo-btn:hover { background: var(--accent); }
+  .demo-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .result-summary {
+    display: none; margin-top: 1.2rem; padding: 1rem;
+    background: var(--accent-soft); border-radius: 10px;
+    font-size: 0.85rem; color: var(--ink);
+  }
+  .result-summary strong { color: var(--accent); font-weight: 600; }
+
+  /* FAQ */
+  .faq-list { max-width: 720px; margin: 0 auto; }
+  .faq-item {
+    border-top: 1px solid var(--line); padding: 1.2rem 0;
+  }
+  .faq-item:last-child { border-bottom: 1px solid var(--line); }
+  .faq-q {
+    display: flex; justify-content: space-between; align-items: center;
+    cursor: pointer; font-weight: 500; font-size: 1rem; color: var(--ink);
+  }
+  .faq-icon {
+    color: var(--accent); font-size: 1.4rem; line-height: 1;
+    transition: transform 0.2s;
+  }
+  .faq-a {
+    display: none; padding-top: 0.8rem; color: var(--ink-soft);
+    font-size: 0.95rem; line-height: 1.7;
+  }
+  .faq-a strong { color: var(--ink); font-weight: 600; }
 
   /* CONTACT SECTION */
   .contact-section {
@@ -451,6 +563,7 @@
     <li><a href="#why">Why us</a></li>
     <li><a href="#how">How it works</a></li>
     <li><a href="#talent">Talent</a></li>
+    <li><a href="#faq">FAQ</a></li>
   </ul>
   <a href="#" class="nav-cta" onclick="openCalendly(); return false;">Book a call</a>
 </nav>
@@ -470,7 +583,17 @@
       <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=60&h=60&fit=crop" alt="">
       <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop" alt="">
     </div>
-    <span>Top 5% of AI talent · vetted from Sydney's leading universities</span>
+    <span>Top 5% of AI talent, vetted from Australia's leading universities</span>
+  </div>
+</div>
+
+<div class="logos-section">
+  <p class="section-tag" style="margin-bottom: 0;">Our talent has worked at</p>
+  <div class="logos-row">
+    <img src="https://logo.clearbit.com/uber.com" alt="Uber" style="height: 28px; opacity: 0.75;">
+    <img src="https://logo.clearbit.com/atlassian.com" alt="Atlassian" style="height: 26px; opacity: 0.75;">
+    <img src="https://logo.clearbit.com/canva.com" alt="Canva" style="height: 28px; opacity: 0.75;">
+    <img src="https://logo.clearbit.com/simon-kucher.com" alt="Simon-Kucher" style="height: 24px; opacity: 0.75;">
   </div>
 </div>
 
@@ -483,7 +606,7 @@
     <div class="why-card">
       <span class="why-num">i.</span>
       <h3>Industry-specific use cases</h3>
-      <p>Your specialist builds AI tools tailored to your industry — not generic demos. Real prompts, real workflows, real ROI.</p>
+      <p>Your specialist builds AI tools tailored to your industry, not generic demos. Real prompts, real workflows, real ROI.</p>
     </div>
     <div class="why-card">
       <span class="why-num">ii.</span>
@@ -523,7 +646,7 @@
         <span class="step-num">03</span>
         <div class="step-content">
           <h3>Get matched to companies.</h3>
-          <p>Once you're in, we pitch you directly to companies hiring for your skill set. You see the brief upfront — no spray-and-pray.</p>
+          <p>Once you're in, we pitch you directly to companies hiring for your skill set. You see the brief upfront, no spray-and-pray.</p>
         </div>
       </div>
       <div class="step">
@@ -544,74 +667,74 @@
 
   <div class="candidates-grid">
     <div class="candidate-card">
-      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop" alt="Alex S.">
+      <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=120&h=120&fit=crop&crop=faces" alt="Alex S.">
       <div class="candidate-name">Alex S.</div>
-      <div class="candidate-title">AI Implementation Specialist · Sydney</div>
+      <div class="candidate-title">3rd year, Computer Science · UNSW</div>
+      <div class="candidate-bio">Built AI workflow tools at a Sydney fintech. Final-year capstone on LLM evaluation.</div>
       <div class="tags">
         <span class="tag">ChatGPT</span><span class="tag">Claude</span><span class="tag">Python</span><span class="tag">Automation</span>
       </div>
       <div class="candidate-meta">
-        <span class="rate">$350/day</span>
         <span class="avail"><span class="avail-dot"></span>Available now</span>
       </div>
     </div>
     <div class="candidate-card">
-      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&h=120&fit=crop" alt="Jamie L.">
+      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=120&h=120&fit=crop&crop=faces" alt="Jamie L.">
       <div class="candidate-name">Jamie L.</div>
-      <div class="candidate-title">LLM Engineer · Melbourne</div>
+      <div class="candidate-title">Honours, Data Science · University of Melbourne</div>
+      <div class="candidate-bio">Research intern on RAG systems. Previously interned at a Y-Combinator startup in SF.</div>
       <div class="tags">
         <span class="tag">Gemini</span><span class="tag">RAG</span><span class="tag">APIs</span><span class="tag">Fine-tuning</span>
       </div>
       <div class="candidate-meta">
-        <span class="rate">$450/day</span>
         <span class="avail"><span class="avail-dot"></span>Available now</span>
       </div>
     </div>
     <div class="candidate-card">
-      <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=120&h=120&fit=crop" alt="Morgan R.">
+      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&h=120&fit=crop&crop=faces" alt="Morgan R.">
       <div class="candidate-name">Morgan R.</div>
-      <div class="candidate-title">AI Trainer & Prompt Engineer · Remote</div>
+      <div class="candidate-title">Masters, AI · University of Sydney</div>
+      <div class="candidate-bio">Ran AI literacy workshops for 200+ staff at a Big 4 consulting firm.</div>
       <div class="tags">
         <span class="tag">Prompt Eng.</span><span class="tag">Training</span><span class="tag">Workflows</span>
       </div>
       <div class="candidate-meta">
-        <span class="rate">$300/day</span>
         <span class="avail soon"><span class="avail-dot"></span>Available June</span>
       </div>
     </div>
     <div class="candidate-card">
-      <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&h=120&fit=crop" alt="Priya N.">
+      <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=120&h=120&fit=crop&crop=faces" alt="Priya N.">
       <div class="candidate-name">Priya N.</div>
-      <div class="candidate-title">Data Scientist & AI Builder · Sydney</div>
+      <div class="candidate-title">4th year, Engineering & Commerce · UNSW</div>
+      <div class="candidate-bio">Built forecasting models at a Sydney retailer. Top of cohort in ML subject.</div>
       <div class="tags">
         <span class="tag">Python</span><span class="tag">Forecasting</span><span class="tag">SQL</span><span class="tag">Dashboards</span>
       </div>
       <div class="candidate-meta">
-        <span class="rate">$400/day</span>
         <span class="avail"><span class="avail-dot"></span>Available now</span>
       </div>
     </div>
     <div class="candidate-card">
-      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&h=120&fit=crop" alt="Tom H.">
+      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&h=120&fit=crop&crop=faces" alt="Tom H.">
       <div class="candidate-name">Tom H.</div>
-      <div class="candidate-title">AI Automation Engineer · Brisbane</div>
+      <div class="candidate-title">Recent grad, Software Engineering · UQ</div>
+      <div class="candidate-bio">Built no-code AI automations for 8 SMEs while at uni. Strong full-stack background.</div>
       <div class="tags">
         <span class="tag">Zapier</span><span class="tag">n8n</span><span class="tag">Make</span><span class="tag">Claude</span>
       </div>
       <div class="candidate-meta">
-        <span class="rate">$350/day</span>
         <span class="avail"><span class="avail-dot"></span>Available now</span>
       </div>
     </div>
     <div class="candidate-card">
-      <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=120&h=120&fit=crop" alt="Sofia D.">
+      <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=120&h=120&fit=crop&crop=faces" alt="Sofia D.">
       <div class="candidate-name">Sofia D.</div>
-      <div class="candidate-title">AI Product Strategist · Melbourne</div>
+      <div class="candidate-title">Honours, Information Systems · Monash</div>
+      <div class="candidate-bio">Ex-Atlassian intern on AI product strategy. Workshop facilitator for AI use case discovery.</div>
       <div class="tags">
         <span class="tag">Strategy</span><span class="tag">Use cases</span><span class="tag">Workshops</span>
       </div>
       <div class="candidate-meta">
-        <span class="rate">$500/day</span>
         <span class="avail soon"><span class="avail-dot"></span>Available June</span>
       </div>
     </div>
@@ -623,25 +746,131 @@
 </section>
 
 <section>
-  <p class="section-tag">Our approach</p>
-  <h2>We don't pitch resumes.<br>We pitch <em>proof</em>.</h2>
-  <div class="outbound-box">
-    <div>
-      <h3>See the work.<br>Then hire the builder.</h3>
-      <p>When we reach out to companies, we send them an AI use case built specifically for their industry — a working model, a workflow, a prototype. If they like what they see, we introduce the specialist who built it.</p>
+  <p class="section-tag">See it in action</p>
+  <h2>A real example.<br>Built in <em>6 hours</em>.</h2>
+  <p class="section-sub">A support team was drowning in 200+ tickets a day. One of our AI Residents built this triage tool. Try it, hit "Run AI triage" below.</p>
+
+  <div class="demo-card">
+    <div class="demo-header">
+      <div>
+        <div class="demo-title">Support Triage AI</div>
+        <div class="demo-sub">Built by Alex S. · Marketplace use case</div>
+      </div>
+      <div class="demo-badge">Live demo</div>
     </div>
-    <div>
-      <div class="sample-email">
-        <div class="email-header">
-          <span>To: <span>sarah@acmecorp.com</span></span>
-          <span>From: <span>team@tryairesidency.com</span></span>
-          <span>Subject: <span>We built something for retail ops teams like yours</span></span>
+
+    <div class="demo-grid">
+      <div>
+        <div class="demo-label">Inbound tickets</div>
+        <div id="tickets-in" class="ticket-col"></div>
+      </div>
+      <div>
+        <div class="demo-label">AI triaged</div>
+        <div id="tickets-out" class="ticket-col">
+          <div id="empty-state" class="empty-state">
+            Click "Run AI triage" to categorize
+          </div>
         </div>
-        <div class="email-body">
-          Hi Sarah — <strong>we built a demand forecasting model</strong> using your publicly available product mix and a bit of prompt engineering. Attached.<br><br>
-          One of our AI specialists built this in about 4 hours. She's available for a 6-week engagement at <strong>$350/day</strong>. Want to see what she'd build with your actual data?
-        </div>
-        <div class="email-attach">📎 acmecorp_demand_model_v1.xlsx</div>
+      </div>
+    </div>
+
+    <button id="run-btn" class="demo-btn">Run AI triage →</button>
+
+    <div id="result-summary" class="result-summary">
+      <strong>Result:</strong> 5 tickets categorized and routed in <span id="result-time">1.2</span>s. At 200 tickets a day, this saves the team around <strong>3.5 hours daily</strong>.
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="section-tag">What people say</p>
+  <h2>Don't take our<br><em>word for it</em>.</h2>
+
+  <div class="testimonial-card">
+    <span class="testimonial-mark">"</span>
+    <p class="testimonial-quote">We hired an AI Resident for 6 weeks to help our ops team get up to speed with AI. By week 2 they'd built three internal tools we still use today. The team can now do things in hours that used to take a full day.</p>
+    <div class="testimonial-author">
+      <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&h=80&fit=crop&crop=faces" alt="">
+      <div>
+        <div class="testimonial-name">Sarah Chen</div>
+        <div class="testimonial-role">Head of Ops, Australian marketplace</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <p class="section-tag">Frequently asked</p>
+  <h2>Questions,<br><em>answered</em>.</h2>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">
+        <span>How much does it cost?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        Engagements start at <strong>$1,500 per week</strong> and scale based on the seniority of the specialist and length of the placement. Most companies start with a 4-week sprint (around $6,000 to $10,000) to test the model before extending. We'll scope the right rate on our intro call.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span>What if the placement doesn't work out?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        Your first week is a no-questions-asked trial. If it isn't the right fit, we'll replace the specialist or refund you in full. After that, you can cancel with 2 weeks notice. We've never had a placement go fully sideways, but the safety net is there.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span>How do you vet your specialists?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        Every applicant goes through a 4-stage process: written application, technical interview, a real-world AI build challenge, and a culture interview. We accept fewer than 1 in 20 applicants. Most come from top Australian universities (UNSW, USYD, UMelb, Monash) or have early-career experience at AI-first companies.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span>Do they work onsite or remote?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        Whatever works for your team. Most Sydney and Melbourne-based specialists are happy to do 2 or 3 days a week onsite. Remote-only placements are also common. We match you with specialists who fit your preferred working style.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span>What about IP and confidentiality?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        Every specialist signs an NDA before they start. All IP built during the placement is owned by your company. We can also sign your own NDA before the first introduction call if you prefer.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span>What if my industry is niche?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        Our specialists are generalists by training but quickly become domain experts during placements. We've matched people to fintech, retail, healthcare, logistics, and professional services briefs. If we don't have someone with direct experience, we find the best generalist match. They come up to speed fast.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span>Can I extend or convert to full-time?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">
+        Yes to both. Most placements get extended at least once. If you want to convert a specialist to a full-time role, we charge a one-time conversion fee (similar to a recruitment placement fee). We'd rather you keep great talent than hold them back.
       </div>
     </div>
   </div>
@@ -666,7 +895,7 @@
           </div>
           <div class="audience-block">
             <h4>For talent</h4>
-            <p>Join Sydney's most selective AI talent network. We accept fewer than 1 in 20 applicants. If you're in, we put you directly in front of companies who want to hire you.</p>
+            <p>Join Australia's most selective AI talent network. We accept fewer than 1 in 20 applicants. If you're in, we put you directly in front of companies who want to hire you.</p>
           </div>
         </div>
       </div>
@@ -711,7 +940,7 @@
           <div class="form-grid">
             <div class="form-group"><label>Full name</label><input type="text" name="name" placeholder="Alex Smith" required></div>
             <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="alex@email.com" required></div>
-            <div class="form-group"><label>Location</label><input type="text" name="location" placeholder="Sydney, NSW"></div>
+            <div class="form-group"><label>Location</label><input type="text" name="location" placeholder="Melbourne, VIC"></div>
             <div class="form-group"><label>Availability</label>
               <select name="availability">
                 <option>Available now</option><option>2 weeks</option>
@@ -728,7 +957,7 @@
 
         <div id="form-success" style="display:none; text-align:center; padding: 2rem 0;">
           <div style="font-family: 'Instrument Serif', serif; font-size: 1.5rem; color: var(--ink); margin-bottom: 0.5rem;">Got it! 🎉</div>
-          <p style="color: var(--ink-soft); font-size: 0.95rem;">Thanks for reaching out — we'll be in touch within 24 hours.</p>
+          <p style="color: var(--ink-soft); font-size: 0.95rem;">Thanks for reaching out, we'll be in touch within 24 hours.</p>
         </div>
       </div>
     </div>
@@ -737,7 +966,7 @@
 
 <footer>
   <a href="#" class="logo"><span class="logo-dot"></span>AI Residency</a>
-  <span>© 2026 AI Residency · Sydney, Australia</span>
+  <span>© 2026 AI Residency · Australia</span>
   <span><a href="mailto:hello@tryairesidency.com">hello@tryairesidency.com</a></span>
 </footer>
 
@@ -807,6 +1036,84 @@ document.addEventListener('DOMContentLoaded', function() {
   const joinForm = document.getElementById('join-form');
   if (hireForm) hireForm.addEventListener('submit', handleFormSubmit);
   if (joinForm) joinForm.addEventListener('submit', handleFormSubmit);
+});
+
+const inboundTickets = [
+  {raw: "URGENT my account got hacked someone is making orders pls help!!!", urgency: "urgent", cat: "Account security", reply: "Lock account, send password reset"},
+  {raw: "hi when does the new feature drop? saw it on twitter", urgency: "low", cat: "Product inquiry", reply: "Forward to product comms team"},
+  {raw: "Payment failed but money was taken from my account. Order #4892", urgency: "high", cat: "Billing", reply: "Verify transaction, refund if duplicate"},
+  {raw: "i cant log in. tried 3 times. very annoyed", urgency: "med", cat: "Login issue", reply: "Send password reset, check account lock"},
+  {raw: "Great app! Just wanted to say thanks", urgency: "low", cat: "Feedback", reply: "Auto-reply with thanks, log for NPS"},
+];
+
+document.addEventListener('DOMContentLoaded', function() {
+  const inEl = document.getElementById('tickets-in');
+  const outEl = document.getElementById('tickets-out');
+  const runBtn = document.getElementById('run-btn');
+  const summaryEl = document.getElementById('result-summary');
+
+  if (inEl && runBtn) {
+    inboundTickets.forEach((t, i) => {
+      const div = document.createElement('div');
+      div.className = 'ticket-in';
+      div.id = 'in-' + i;
+      div.textContent = '"' + t.raw + '"';
+      inEl.appendChild(div);
+    });
+
+    let running = false;
+    runBtn.addEventListener('click', async () => {
+      if (running) return;
+      running = true;
+      runBtn.disabled = true;
+      runBtn.textContent = 'Processing...';
+      summaryEl.style.display = 'none';
+      outEl.innerHTML = '';
+
+      const startTime = Date.now();
+
+      for (let i = 0; i < inboundTickets.length; i++) {
+        const t = inboundTickets[i];
+        const inDiv = document.getElementById('in-' + i);
+        inDiv.classList.add('processing');
+
+        await new Promise(r => setTimeout(r, 220));
+
+        const out = document.createElement('div');
+        out.className = 'ticket-out';
+        const badgeLabel = t.urgency.charAt(0).toUpperCase() + t.urgency.slice(1);
+        out.innerHTML =
+          '<div class="ticket-meta">' +
+            '<span class="ticket-badge ' + t.urgency + '">' + badgeLabel + '</span>' +
+            '<span class="ticket-category">' + t.cat + '</span>' +
+          '</div>' +
+          '<div class="ticket-preview">→ ' + t.reply + '</div>';
+        outEl.appendChild(out);
+
+        requestAnimationFrame(() => out.classList.add('show'));
+
+        await new Promise(r => setTimeout(r, 180));
+        inDiv.classList.remove('processing');
+      }
+
+      const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+      document.getElementById('result-time').textContent = elapsed;
+      summaryEl.style.display = 'block';
+      runBtn.textContent = 'Run again';
+      runBtn.disabled = false;
+      running = false;
+    });
+  }
+
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const a = q.nextElementSibling;
+      const icon = q.querySelector('.faq-icon');
+      const isOpen = a.style.display === 'block';
+      a.style.display = isOpen ? 'none' : 'block';
+      icon.textContent = isOpen ? '+' : '−';
+    });
+  });
 });
 </script>
 </body>
