@@ -195,6 +195,16 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 0 3rem;
   }
+  .steps.four-steps.three-steps {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .steps.four-steps.three-steps .step:nth-last-child(-n+2) {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .steps.four-steps.three-steps .step:last-child {
+    border-bottom: none;
+  }
   .steps.four-steps .step {
     border-right: none;
     border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -623,37 +633,30 @@
 
 <div class="how-section" id="how">
   <div class="how-inner">
-    <p class="section-tag">How it works · For candidates</p>
+    <p class="section-tag">How we vet talent</p>
     <h2>Only the <em>top 5%</em><br>make it through.</h2>
-    <p class="section-sub">We're selective on purpose. Companies trust us because every specialist on our roster has been through a rigorous 4-stage vetting process.</p>
+    <p class="section-sub">We're selective on purpose. Companies trust us because every specialist on our roster has been through a rigorous 3-stage process.</p>
 
-    <div class="steps four-steps">
+    <div class="steps four-steps three-steps">
       <div class="step">
         <span class="step-num">01</span>
         <div class="step-content">
-          <h3>Apply to AI Residency.</h3>
-          <p>Submit your application in 2 minutes. If your experience looks right, we'll invite you to a virtual interview.</p>
+          <h3>Application & screen</h3>
+          <p>We assess university background, prior AI experience, and the quality of work each applicant has actually shipped. Most are filtered out here.</p>
         </div>
       </div>
       <div class="step">
         <span class="step-num">02</span>
         <div class="step-content">
-          <h3>Prove your skills.</h3>
-          <p>Complete a short AI build challenge. We assess your prompting, problem-solving, and how you communicate technical work.</p>
+          <h3>Technical build challenge</h3>
+          <p>Applicants complete a real-world AI task on their own time. We score on prompting, problem-solving, and how clearly they communicate technical decisions.</p>
         </div>
       </div>
       <div class="step">
         <span class="step-num">03</span>
         <div class="step-content">
-          <h3>Get matched to companies.</h3>
-          <p>Once you're in, we pitch you directly to companies hiring for your skill set. You see the brief upfront, no spray-and-pray.</p>
-        </div>
-      </div>
-      <div class="step">
-        <span class="step-num">04</span>
-        <div class="step-content">
-          <h3>Land paid AI work.</h3>
-          <p>Get matched in days, not months. Start your placement, build real things, get paid, and grow your portfolio.</p>
+          <h3>Interview & references</h3>
+          <p>A final culture and communication interview, plus reference checks on past work. Only then do we add them to the roster you see above.</p>
         </div>
       </div>
     </div>
@@ -670,7 +673,7 @@
       <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=120&h=120&fit=crop&crop=faces" alt="Alex S.">
       <div class="candidate-name">Alex S.</div>
       <div class="candidate-title">3rd year, Computer Science · UNSW</div>
-      <div class="candidate-bio">Built AI workflow tools at a Sydney fintech. Final-year capstone on LLM evaluation.</div>
+      <div class="candidate-bio">Built a support triage AI for an Australian marketplace. Final-year capstone on LLM evaluation.</div>
       <div class="tags">
         <span class="tag">ChatGPT</span><span class="tag">Claude</span><span class="tag">Python</span><span class="tag">Automation</span>
       </div>
@@ -699,7 +702,7 @@
         <span class="tag">Prompt Eng.</span><span class="tag">Training</span><span class="tag">Workflows</span>
       </div>
       <div class="candidate-meta">
-        <span class="avail soon"><span class="avail-dot"></span>Available June</span>
+        <span class="avail soon"><span class="avail-dot"></span>Available <span class="next-month">next month</span></span>
       </div>
     </div>
     <div class="candidate-card">
@@ -735,7 +738,7 @@
         <span class="tag">Strategy</span><span class="tag">Use cases</span><span class="tag">Workshops</span>
       </div>
       <div class="candidate-meta">
-        <span class="avail soon"><span class="avail-dot"></span>Available June</span>
+        <span class="avail soon"><span class="avail-dot"></span>Available <span class="next-month">next month</span></span>
       </div>
     </div>
   </div>
@@ -788,12 +791,12 @@
 
   <div class="testimonial-card">
     <span class="testimonial-mark">"</span>
-    <p class="testimonial-quote">We hired an AI Resident for 6 weeks to help our ops team get up to speed with AI. By week 2 they'd built three internal tools we still use today. The team can now do things in hours that used to take a full day.</p>
+    <p class="testimonial-quote">We hired an AI Resident for 25 hours a week with the goal of giving us some really pragmatic, hands-on AI support within ANZ. In particular, partnering with each of our managers on how we set up for more complex use cases and workflows over time. They've been amazing: shipping internal tooling, running office hours, and lifting the whole team's AI fluency week by week.</p>
     <div class="testimonial-author">
-      <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&h=80&fit=crop&crop=faces" alt="">
+      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=faces" alt="">
       <div>
-        <div class="testimonial-name">Sarah Chen</div>
-        <div class="testimonial-role">Head of Ops, Australian marketplace</div>
+        <div class="testimonial-name">Gus Neill</div>
+        <div class="testimonial-role">Strategy & Ops Manager, Uber</div>
       </div>
     </div>
   </div>
@@ -885,7 +888,7 @@
         <p class="section-sub" style="margin-bottom: 0;">Ready to chat? Book a 15-min intro call below. Prefer to send a brief first? Fill out the form on the right and we'll be in touch within 24 hours.</p>
 
         <div style="margin-top: 2rem;">
-          <a href="#" class="btn-primary" onclick="openCalendly(); return false;" style="background: var(--accent); color: white;">Book a 15-min call →</a>
+          <a href="#" class="btn-primary" onclick="openCalendly(); return false;">Book a 15-min call →</a>
         </div>
 
         <div class="audience-blocks">
@@ -966,8 +969,7 @@
 
 <footer>
   <a href="#" class="logo"><span class="logo-dot"></span>AI Residency</a>
-  <span>© 2026 AI Residency · Australia</span>
-  <span><a href="mailto:hello@tryairesidency.com">hello@tryairesidency.com</a></span>
+  <span>© <span class="current-year">2026</span> AI Residency · Australia</span>
 </footer>
 
 <script>
@@ -1047,6 +1049,20 @@ const inboundTickets = [
 ];
 
 document.addEventListener('DOMContentLoaded', function() {
+  const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'];
+  const now = new Date();
+  const nextMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+  const nextMonthName = monthNames[nextMonth.getMonth()];
+
+  document.querySelectorAll('.next-month').forEach(el => {
+    el.textContent = nextMonthName;
+  });
+
+  document.querySelectorAll('.current-year').forEach(el => {
+    el.textContent = now.getFullYear();
+  });
+
   const inEl = document.getElementById('tickets-in');
   const outEl = document.getElementById('tickets-out');
   const runBtn = document.getElementById('run-btn');
