@@ -1,0 +1,8 @@
+[build]
+  publish = "."
+
+[[forms]]
+  name = "hire-inquiry"
+
+[[forms]]
+  name = "talent-application"
