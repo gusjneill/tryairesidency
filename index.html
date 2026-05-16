@@ -188,6 +188,35 @@
     display: grid; grid-template-columns: repeat(3,1fr); gap: 0;
     margin-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);
   }
+  .steps.four-steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 3rem;
+  }
+  .steps.four-steps .step {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 2.5rem 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+  .steps.four-steps .step:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+  .steps.four-steps .step-num {
+    font-size: 4.5rem;
+    margin-bottom: 0;
+    color: var(--bg);
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+  }
+  .steps.four-steps .step-content h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+  }
   .step {
     padding: 2.5rem 1.5rem 1rem 0;
     border-right: 1px solid rgba(255,255,255,0.1);
@@ -383,8 +412,11 @@
     .why-grid, .candidates-grid, .outbound-box, .contact-grid, .form-grid, .steps {
       grid-template-columns: 1fr;
     }
+    .steps.four-steps { grid-template-columns: 1fr; gap: 0; }
     .step { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 2rem 0; }
     .step:not(:first-child) { padding-left: 0; }
+    .steps.four-steps .step { padding: 2rem 0; gap: 1rem; }
+    .steps.four-steps .step-num { font-size: 3rem; }
     h1 { font-size: 2.8rem; }
     .contact-section { padding: 2.5rem 1.5rem; border-radius: 16px; }
   }
@@ -417,7 +449,7 @@
       <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=60&h=60&fit=crop" alt="">
       <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop" alt="">
     </div>
-    <span>Trusted by builders from top universities and AI programs</span>
+    <span>Top 5% of AI talent · vetted from Sydney's leading universities</span>
   </div>
 </div>
 
@@ -447,25 +479,38 @@
 
 <div class="how-section" id="how">
   <div class="how-inner">
-    <p class="section-tag">How it works</p>
-    <h2>Simple. Fast.<br><em>Actually</em> useful.</h2>
-    <p class="section-sub">No lengthy procurement. No consultancy bloat. Just the right person, in your team, getting things done.</p>
+    <p class="section-tag">How it works · For candidates</p>
+    <h2>Only the <em>top 5%</em><br>make it through.</h2>
+    <p class="section-sub">We're selective on purpose. Companies trust us because every specialist on our roster has been through a rigorous 4-stage vetting process.</p>
 
-    <div class="steps">
+    <div class="steps four-steps">
       <div class="step">
-        <span class="step-num">i.</span>
-        <h3>Tell us what you need</h3>
-        <p>Share your industry, team size, and what you want to achieve with AI. We'll scope the right engagement in 24 hours.</p>
+        <span class="step-num">01</span>
+        <div class="step-content">
+          <h3>Apply to AI Residency.</h3>
+          <p>Submit your application in 2 minutes. If your experience looks right, we'll invite you to a virtual interview.</p>
+        </div>
       </div>
       <div class="step">
-        <span class="step-num">ii.</span>
-        <h3>Meet your specialist</h3>
-        <p>We match you with a vetted AI specialist. You see their background, past projects, and day rate upfront.</p>
+        <span class="step-num">02</span>
+        <div class="step-content">
+          <h3>Prove your skills.</h3>
+          <p>Complete a short AI build challenge. We assess your prompting, problem-solving, and how you communicate technical work.</p>
+        </div>
       </div>
       <div class="step">
-        <span class="step-num">iii.</span>
-        <h3>They embed. Things ship.</h3>
-        <p>Your specialist joins your team, finds quick wins, builds use cases, and trains your people as they go.</p>
+        <span class="step-num">03</span>
+        <div class="step-content">
+          <h3>Get matched to companies.</h3>
+          <p>Once you're in, we pitch you directly to companies hiring for your skill set. You see the brief upfront — no spray-and-pray.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">04</span>
+        <div class="step-content">
+          <h3>Land paid AI work.</h3>
+          <p>Get matched in days, not months. Start your placement, build real things, get paid, and grow your portfolio.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -473,8 +518,8 @@
 
 <section id="candidates">
   <p class="section-tag">Featured specialists</p>
-  <h2>Available <em>this month</em>.</h2>
-  <p class="section-sub">Each specialist is interviewed and vetted. Top university students and recent grads with real AI experience.</p>
+  <h2>The <em>handpicked few</em>.</h2>
+  <p class="section-sub">Every specialist is interviewed, skill-tested, and vetted. We accept fewer than 1 in 20 applicants. Here's who's available this month.</p>
 
   <div class="candidates-grid">
     <div class="candidate-card">
@@ -556,7 +601,7 @@
           </div>
           <div class="audience-block">
             <h4>For candidates</h4>
-            <p>Short paid placements that fit around study. Real projects, real impact, real portfolio pieces. Competitive day rates.</p>
+            <p>Join Sydney's most selective AI talent network. We accept fewer than 1 in 20 applicants. If you're in, we put you directly in front of companies who want to hire you.</p>
           </div>
         </div>
       </div>
