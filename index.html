@@ -677,7 +677,7 @@
           <button class="form-tab" onclick="switchTab(this, 'join')">I want to join</button>
         </div>
 
-        <form id="hire-form" name="hire-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleFormSubmit(event, 'hire')">
+        <form id="hire-form" name="hire-inquiry" method="POST" action="#contact" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="hire-inquiry" />
           <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
           <div class="form-grid">
@@ -705,7 +705,7 @@
           <div class="form-submit"><button type="submit" class="btn-primary" style="border: none; cursor: pointer; font-family: 'Inter', sans-serif;">Send brief →</button></div>
         </form>
 
-        <form id="join-form" name="talent-application" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="display:none;" onsubmit="handleFormSubmit(event, 'join')">
+        <form id="join-form" name="talent-application" method="POST" action="#contact" data-netlify="true" netlify-honeypot="bot-field" style="display:none;">
           <input type="hidden" name="form-name" value="talent-application" />
           <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
           <div class="form-grid">
@@ -765,10 +765,18 @@ function openCalendly() {
   }
 }
 
-function handleFormSubmit(event, formType) {
+function handleFormSubmit(event) {
   event.preventDefault();
+  event.stopPropagation();
   const form = event.target;
   const formData = new FormData(form);
+
+  // Disable submit button to prevent double-submits
+  const submitBtn = form.querySelector('button[type="submit"]');
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+  }
 
   fetch('/', {
     method: 'POST',
@@ -779,12 +787,27 @@ function handleFormSubmit(event, formType) {
     document.getElementById('hire-form').style.display = 'none';
     document.getElementById('join-form').style.display = 'none';
     document.getElementById('form-success').style.display = 'block';
+    document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
   })
   .catch(error => {
     alert('Something went wrong. Please try again or email us directly.');
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = form.id === 'hire-form' ? 'Send brief →' : 'Apply to join →';
+    }
     console.error(error);
   });
+
+  return false;
 }
+
+// Wire up form handlers when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+  const hireForm = document.getElementById('hire-form');
+  const joinForm = document.getElementById('join-form');
+  if (hireForm) hireForm.addEventListener('submit', handleFormSubmit);
+  if (joinForm) joinForm.addEventListener('submit', handleFormSubmit);
+});
 </script>
 </body>
 </html>
