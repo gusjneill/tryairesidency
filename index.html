@@ -116,6 +116,12 @@
     text-decoration: none; transition: all 0.2s; display: inline-block;
   }
   .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+  .contact-section .btn-primary {
+    background: var(--accent); color: var(--bg);
+  }
+  .contact-section .btn-primary:hover {
+    background: var(--accent); filter: brightness(1.1); transform: translateY(-1px);
+  }
   .btn-outline {
     background: transparent; color: var(--ink);
     border: 1px solid var(--line-strong); padding: 0.9rem 2rem; border-radius: 100px;
@@ -596,7 +602,7 @@
       <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=60&h=60&fit=crop" alt="">
       <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop" alt="">
     </div>
-    <span>Top 5% of AI talent, vetted from Australia's leading universities</span>
+    <span>Top 1% of AI talent, vetted from Australia's leading universities</span>
   </div>
 </div>
 
@@ -629,7 +635,7 @@
     <div class="why-card">
       <span class="why-num">iii.</span>
       <h3>Short, flexible, affordable</h3>
-      <p>4 to 12 week placements. Day rates from $300. No retainers, no lock-in, cancel anytime with 2 weeks notice.</p>
+      <p>4 to 12 week placements. Rates as low as $30/hour. No retainers, no lock-in, cancel anytime with 2 weeks notice.</p>
     </div>
   </div>
 </section>
@@ -637,7 +643,7 @@
 <div class="how-section" id="how">
   <div class="how-inner">
     <p class="section-tag">How we vet talent</p>
-    <h2>Only the <em>top 5%</em><br>make it through.</h2>
+    <h2>Only the <em>top 1%</em><br>make it through.</h2>
     <p class="section-sub">We're selective on purpose. Companies trust us because every specialist on our roster has been through a rigorous 3-stage process.</p>
 
     <div class="steps four-steps three-steps">
@@ -659,7 +665,7 @@
         <span class="step-num">03</span>
         <div class="step-content">
           <h3>Interview & references</h3>
-          <p>A final culture and communication interview, plus reference checks on past work. Only then do we add them to the roster you see above.</p>
+          <p>A final culture and communication interview, plus reference checks on past work. Only then do we add them to the roster you see below.</p>
         </div>
       </div>
     </div>
@@ -669,7 +675,7 @@
 <section id="talent">
   <p class="section-tag">Featured talent</p>
   <h2>The <em>handpicked few</em>.</h2>
-  <p class="section-sub">Every specialist is interviewed, skill-tested, and vetted. We accept fewer than 1 in 20 applicants. Here's who's available this month.</p>
+  <p class="section-sub">Every specialist is interviewed, skill-tested, and vetted. We accept fewer than 1 in 100 applicants. Here's who's available this month.</p>
 
   <div class="candidates-grid">
     <div class="candidate-card">
@@ -794,7 +800,7 @@
 
   <div class="testimonial-card">
     <span class="testimonial-mark">"</span>
-    <p class="testimonial-quote">We hired an AI Resident for 25 hours a week with the goal of giving us some really pragmatic, hands-on AI support within ANZ. In particular, partnering with each of our managers on how we set up for more complex use cases and workflows over time. They've been amazing: shipping internal tooling, running office hours, and lifting the whole team's AI fluency week by week.</p>
+    <p class="testimonial-quote">We hired an AI Resident for <strong>25 hours a week</strong> with the goal of giving us some really pragmatic, hands-on AI support within ANZ. In particular, <strong>partnering with each of our managers</strong> on how we set up for more complex use cases and workflows over time. They've been <strong>amazing</strong>: shipping internal tooling, running office hours, and lifting the whole team's AI fluency week by week.</p>
     <div class="testimonial-author">
       <img src="/assets/images/gus_neill_headshot.jpg" alt="Gus Neill">
       <div>
@@ -816,7 +822,7 @@
         <span class="faq-icon">+</span>
       </div>
       <div class="faq-a">
-        Engagements start at <strong>$1,500 per week</strong> and scale based on the seniority of the specialist and length of the placement. Most companies start with a 4-week sprint to test the model before extending. We'll scope the right rate on our intro call.
+        Engagements start at <strong>$30/hour</strong> and scale based on the seniority of the specialist and length of the placement. Most companies start with a 4-week sprint to test the model before extending. We'll scope the right rate on our intro call.
       </div>
     </div>
 
@@ -836,7 +842,7 @@
         <span class="faq-icon">+</span>
       </div>
       <div class="faq-a">
-        Every applicant goes through a 4-stage process: written application, technical interview, a real-world AI build challenge, and a culture interview. We accept fewer than 1 in 20 applicants. Most come from top Australian universities (UNSW, USYD, UMelb, Monash) or have early-career experience at AI-first companies.
+        Every applicant goes through a 4-stage process: written application, technical interview, a real-world AI build challenge, and a culture interview. We accept fewer than 1 in 100 applicants. Most come from top Australian universities (UNSW, USYD, UMelb, Monash) or have early-career experience at AI-first companies.
       </div>
     </div>
 
@@ -897,11 +903,11 @@
         <div class="audience-blocks">
           <div class="audience-block">
             <h4>For companies</h4>
-            <p>Get industry-specific AI built for you. Upskill your team. No retainers, no lock-in. Day rates from $300.</p>
+            <p>Get industry-specific AI built for you. Upskill your team. No retainers, no lock-in. Rates as low as $30/hour.</p>
           </div>
           <div class="audience-block">
             <h4>For talent</h4>
-            <p>Join Australia's most selective AI talent network. We accept fewer than 1 in 20 applicants. If you're in, we put you directly in front of companies who want to hire you.</p>
+            <p>Join Australia's most selective AI talent network. We accept fewer than 1 in 100 applicants. If you're in, we put you directly in front of companies who want to hire you.</p>
           </div>
         </div>
       </div>
@@ -1095,6 +1101,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const div = document.createElement('div');
         div.className = 'ticket-in';
         div.id = 'in-' + i;
+        div.dataset.urgency = t.urgency;
         div.textContent = '"' + t.raw + '"';
         inEl.appendChild(div);
       });
@@ -1144,21 +1151,27 @@ document.addEventListener('DOMContentLoaded', function() {
         inDiv.classList.remove('processing');
       }
 
-      // STEP 2: Pause, then sort by urgency with smooth slide (FLIP technique)
+      // STEP 2: Pause, then sort BOTH sides by urgency with smooth slide (FLIP technique)
       await new Promise(r => setTimeout(r, 500));
       runBtn.textContent = 'Sorting by urgency...';
 
-      const tickets = Array.from(outEl.children);
-      const firstPositions = new Map();
-      tickets.forEach(el => firstPositions.set(el, el.getBoundingClientRect().top));
-
-      // Sort DOM by urgency
       const urgencyOrder = { urgent: 0, high: 1, med: 2, low: 3 };
-      tickets.sort((a, b) => urgencyOrder[a.dataset.urgency] - urgencyOrder[b.dataset.urgency]);
-      tickets.forEach(el => outEl.appendChild(el));
 
-      // Animate from old position to new
-      tickets.forEach(el => {
+      // Capture starting positions for both sides
+      const outTickets = Array.from(outEl.children);
+      const inTickets = Array.from(inEl.children);
+      const firstPositions = new Map();
+      outTickets.forEach(el => firstPositions.set(el, el.getBoundingClientRect().top));
+      inTickets.forEach(el => firstPositions.set(el, el.getBoundingClientRect().top));
+
+      // Sort both DOMs by urgency
+      outTickets.sort((a, b) => urgencyOrder[a.dataset.urgency] - urgencyOrder[b.dataset.urgency]);
+      outTickets.forEach(el => outEl.appendChild(el));
+      inTickets.sort((a, b) => urgencyOrder[a.dataset.urgency] - urgencyOrder[b.dataset.urgency]);
+      inTickets.forEach(el => inEl.appendChild(el));
+
+      // Animate both sides from old position to new (in parallel)
+      [...outTickets, ...inTickets].forEach(el => {
         const newTop = el.getBoundingClientRect().top;
         const delta = firstPositions.get(el) - newTop;
         if (delta !== 0) {
