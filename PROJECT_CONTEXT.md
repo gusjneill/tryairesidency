@@ -130,21 +130,44 @@ tryairesidency/
 
 ---
 
-## DEPLOYMENT WORKFLOW
+## GIT & DEPLOYMENT WORKFLOW
+
+### GitHub Access
+- **Repo:** https://github.com/gusjneill/tryairesidency
+- **PAT:** Stored securely (used for headless pushes)
+- **Branch:** `main` (production)
 
 ### To deploy changes:
 
-**Step 1: Push to GitHub**
+**Step 1: Make changes to `index.html` or assets**
 ```bash
 cd tryairesidency
+git add -A
+git commit -m "Fix: [what you changed]"
+```
+
+**Step 2: Push to GitHub**
+```bash
 git push origin main
 ```
-(If auth fails: use GitHub PAT or push from your local machine)
 
-**Step 2: Netlify auto-deploys**
+**Step 3: Netlify auto-deploys**
 - Netlify watches `gusjneill/tryairesidency` `main` branch
 - Deploy completes in ~1–2 min
 - Live at https://tryairesidency.com
+- Check deployment status at https://app.netlify.com/sites/tryairesidency/deploys
+
+### Commit message style
+Keep it short + descriptive:
+- `Fix: Calendly slow load, add async/defer`
+- `Update: Talent card for Alex S.`
+- `Docs: Add FAQ answer`
+- `Feature: Sort triage output by urgency`
+
+Avoid:
+- Generic "update" or "changes"
+- Multiple unrelated changes in one commit
+- Typos in commit messages
 
 ---
 
