@@ -57,12 +57,7 @@
   gtag('config', 'G-W4E8X9Z2QJ');
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://assets.calendly.com">
-<link rel="preconnect" href="https://calendly.com">
-<link rel="dns-prefetch" href="https://calendly.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async defer></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -618,12 +613,15 @@
   <input type="text" name="length" />
   <textarea name="goal"></textarea>
 </form>
-<form name="talent-application" netlify netlify-honeypot="bot-field" hidden>
+<form name="talent-application" netlify netlify-honeypot="bot-field" data-netlify="true" enctype="multipart/form-data" hidden>
   <input type="text" name="name" />
   <input type="email" name="email" />
+  <input type="text" name="university" />
+  <input type="text" name="field-of-study" />
   <input type="text" name="location" />
   <input type="text" name="availability" />
   <input type="url" name="portfolio" />
+  <input type="file" name="cv" />
   <textarea name="experience"></textarea>
 </form>
 
@@ -635,7 +633,7 @@
     <li><a href="#talent">Talent</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
-  <a href="#" class="nav-cta" onclick="openCalendly(); return false;">Book a call</a>
+  <a href="#contact" class="nav-cta" onclick="switchToHireTab()">Get involved</a>
 </nav>
 
 <div class="hero">
@@ -643,7 +641,7 @@
   <h1>AI talent.<br><em>Embedded</em> into<br>your Australian team.</h1>
   <p class="hero-sub">Hire a vetted AI specialist for 4–12 weeks. They sit with your team, build real use cases, and leave your people knowing how to actually use AI.</p>
   <div class="hero-ctas">
-    <a href="#" class="btn-primary" onclick="openCalendly(); return false;">Book a call</a>
+    <a href="#contact" class="btn-primary" onclick="switchToHireTab()">Get talent</a>
     <a href="#contact" class="btn-outline" onclick="switchToJoinTab()">Join as talent</a>
   </div>
   <div class="hero-trust">
@@ -873,7 +871,7 @@
         <span class="faq-icon">+</span>
       </div>
       <div class="faq-a">
-        Engagements start at <strong>$30/hour</strong> and scale based on the seniority of the specialist and length of the placement. Most companies start with a 4-week sprint to test the model before extending. We'll scope the right rate on our intro call.
+        Engagements start at <strong>$30/hour</strong> and scale based on the seniority of the specialist and length of the placement. Most companies start with a 4-week sprint to test the model before extending. We'll scope the right fit when you get in touch.
       </div>
     </div>
 
@@ -945,11 +943,7 @@
       <div>
         <p class="section-tag">Get started</p>
         <h2>Let's <em>talk</em>.</h2>
-        <p class="section-sub" style="margin-bottom: 0;">Ready to chat? Book a 15-min intro call below. Prefer to send a brief first? Fill out the form on the right and we'll be in touch within 24 hours.</p>
-
-        <div style="margin-top: 2rem;">
-          <a href="#" class="btn-primary" onclick="openCalendly(); return false;">Book a 15-min call →</a>
-        </div>
+        <p class="section-sub" style="margin-bottom: 0;">Fill out the form on the right and we'll be in touch within 24 hours.</p>
 
         <div class="audience-blocks">
           <div class="audience-block">
@@ -997,12 +991,14 @@
           <div class="form-submit"><button type="submit" class="btn-primary" style="border: none; cursor: pointer; font-family: 'Inter', sans-serif;">Send brief →</button></div>
         </form>
 
-        <form id="join-form" name="talent-application" method="POST" action="#contact" data-netlify="true" netlify-honeypot="bot-field" style="display:none;">
+        <form id="join-form" name="talent-application" method="POST" action="#contact" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" style="display:none;">
           <input type="hidden" name="form-name" value="talent-application" />
           <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
           <div class="form-grid">
             <div class="form-group"><label>Full name</label><input type="text" name="name" placeholder="Alex Smith" required></div>
             <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="alex@email.com" required></div>
+            <div class="form-group"><label>University + year</label><input type="text" name="university" placeholder="UNSW, 3rd year" required></div>
+            <div class="form-group"><label>Field of study</label><input type="text" name="field-of-study" placeholder="Computer Science" required></div>
             <div class="form-group"><label>Location</label><input type="text" name="location" placeholder="Melbourne, VIC"></div>
             <div class="form-group"><label>Availability</label>
               <select name="availability">
@@ -1011,6 +1007,7 @@
               </select>
             </div>
             <div class="form-group full"><label>LinkedIn or portfolio</label><input type="url" name="portfolio" placeholder="https://linkedin.com/in/your-name"></div>
+            <div class="form-group full"><label>CV <span style="color: var(--ink-soft); font-weight: 400;">(PDF or Word, max 8MB)</span></label><input type="file" name="cv" accept=".pdf,.doc,.docx" required><span id="cv-size-error" style="display:none; color:#c0392b; font-size:0.85rem; margin-top:0.25rem;">File is too large — please upload a file under 8MB.</span></div>
             <div class="form-group full"><label>Your AI experience</label>
               <textarea name="experience" placeholder="What tools, what you've built, what industries..."></textarea>
             </div>
@@ -1048,12 +1045,11 @@ function switchToJoinTab() {
   }, 300);
 }
 
-function openCalendly() {
-  if (typeof Calendly !== 'undefined') {
-    Calendly.initPopupWidget({ url: 'https://calendly.com/gus-j-neill/30min' });
-  } else {
-    window.open('https://calendly.com/gus-j-neill/30min', '_blank');
-  }
+function switchToHireTab() {
+  setTimeout(() => {
+    const hireTabBtn = document.querySelectorAll('.form-tab')[0];
+    if (hireTabBtn) switchTab(hireTabBtn, 'hire');
+  }, 300);
 }
 
 function handleFormSubmit(event) {
@@ -1062,6 +1058,16 @@ function handleFormSubmit(event) {
   const form = event.target;
   const formData = new FormData(form);
 
+  const cvInput = form.querySelector('input[type="file"]');
+  const cvError = document.getElementById('cv-size-error');
+  if (cvInput && cvInput.files[0]) {
+    if (cvInput.files[0].size > 8 * 1024 * 1024) {
+      if (cvError) cvError.style.display = 'block';
+      return false;
+    }
+  }
+  if (cvError) cvError.style.display = 'none';
+
   // Disable submit button to prevent double-submits
   const submitBtn = form.querySelector('button[type="submit"]');
   if (submitBtn) {
@@ -1069,11 +1075,12 @@ function handleFormSubmit(event) {
     submitBtn.textContent = 'Sending...';
   }
 
-  fetch('/', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams(formData).toString()
-  })
+  const hasFile = !!form.querySelector('input[type="file"]');
+  const fetchOptions = hasFile
+    ? { method: 'POST', body: formData }
+    : { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(formData).toString() };
+
+  fetch('/', fetchOptions)
   .then(() => {
     document.getElementById('hire-form').style.display = 'none';
     document.getElementById('join-form').style.display = 'none';
