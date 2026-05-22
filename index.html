@@ -50,13 +50,7 @@
       "offers": {
         "@type": "Offer",
         "priceCurrency": "AUD",
-        "price": "30",
-        "priceSpecification": {
-          "@type": "UnitPriceSpecification",
-          "price": "30",
-          "priceCurrency": "AUD",
-          "unitText": "hour"
-        }
+        "description": "Pricing scoped per placement based on specialist seniority and engagement length"
       }
     },
     {
@@ -425,6 +419,14 @@
     width: 56px; height: 56px; border-radius: 50%;
     object-fit: cover; margin-bottom: 1rem;
     border: 1px solid var(--line);
+  }
+  .avatar-initials {
+    width: 56px; height: 56px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Inter', sans-serif; font-weight: 600;
+    font-size: 0.8rem; letter-spacing: 0.04em;
+    color: #fff; margin-bottom: 1rem;
+    border: 1px solid var(--line); flex-shrink: 0;
   }
   .candidate-name {
     font-family: 'Instrument Serif', serif;
@@ -841,7 +843,7 @@
       </div>
     </div>
     <div class="candidate-card">
-      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=120&h=120&fit=crop&crop=faces" alt="Jamie L.">
+      <div class="avatar-initials" style="background:#5B7FA6">JL</div>
       <div class="candidate-name">Jamie L.</div>
       <div class="candidate-title">Honours, Data Science · University of Melbourne</div>
       <div class="candidate-bio">Research intern on RAG systems. Previously interned at a Y-Combinator startup in SF.</div>
@@ -865,7 +867,7 @@
       </div>
     </div>
     <div class="candidate-card">
-      <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=120&h=120&fit=crop&crop=faces" alt="Priya N.">
+      <div class="avatar-initials" style="background:#8B6B8A">PN</div>
       <div class="candidate-name">Priya N.</div>
       <div class="candidate-title">4th year, Engineering & Commerce · UNSW</div>
       <div class="candidate-bio">Built forecasting models at a Sydney retailer. Top of cohort in ML subject.</div>
@@ -877,7 +879,7 @@
       </div>
     </div>
     <div class="candidate-card">
-      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&h=120&fit=crop&crop=faces" alt="Tom H.">
+      <div class="avatar-initials" style="background:#5F8A72">TH</div>
       <div class="candidate-name">Tom H.</div>
       <div class="candidate-title">Recent grad, Software Engineering · UQ</div>
       <div class="candidate-bio">Built no-code AI automations for 8 SMEs while at uni. Strong full-stack background.</div>
