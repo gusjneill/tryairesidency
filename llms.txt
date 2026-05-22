@@ -1,0 +1,22 @@
+# AI Residency
+
+> Talent placement service connecting vetted AI students and recent graduates from Australia's top universities (UNSW, USYD, UMelb, Monash) with companies needing 4-12 week AI expertise stints. Founded by Gus Neill, ex-Uber Strategy and Operations.
+
+## Key facts
+- Day rates from AUD $30/hour
+- Placements 4-12 weeks
+- Acceptance rate: fewer than 1 in 100 applicants
+- 3-stage vetting: application & screen, real-world AI build challenge, culture interview with references
+- Coverage: Australia only (AU)
+- First week trial: no-questions-asked refund or replacement
+- 2 weeks notice to cancel after the trial week
+- Onsite, hybrid, or fully remote (your choice)
+
+## Pages
+- [Home](https://tryairesidency.com/): product overview, vetting process, featured talent, FAQ, contact
+- [Pricing](https://tryairesidency.com/pricing.md): structured pricing for AI agents
+
+## Contact
+- Email: gus.j.neill@gmail.com
+- Calendly: https://calendly.com/gus-j-neill/30min
+- Founder: Gus Neill (LinkedIn: https://www.linkedin.com/in/gusneill/)

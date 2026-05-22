@@ -12,11 +12,13 @@
   "@graph": [
     {
       "@type": "Organization",
+      "@id": "https://tryairesidency.com/#organization",
       "name": "AI Residency",
       "url": "https://tryairesidency.com",
       "description": "Talent placement platform connecting Australian university AI students and recent graduates with companies needing 4–12 week AI expertise stints.",
       "areaServed": "AU",
       "foundingLocation": "Australia",
+      "founder": { "@id": "https://tryairesidency.com/#founder" },
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "sales",
@@ -24,12 +26,25 @@
       }
     },
     {
-      "@type": "Service",
-      "name": "AI Talent Placement",
-      "provider": {
+      "@type": "Person",
+      "@id": "https://tryairesidency.com/#founder",
+      "name": "Gus Neill",
+      "jobTitle": "Founder, AI Residency",
+      "worksFor": { "@id": "https://tryairesidency.com/#organization" },
+      "alumniOf": {
         "@type": "Organization",
-        "name": "AI Residency"
+        "name": "Uber"
       },
+      "description": "Founder of AI Residency. Previously Strategy and Operations Manager at Uber.",
+      "sameAs": [
+        "https://www.linkedin.com/in/gusneill/"
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://tryairesidency.com/#service",
+      "name": "AI Talent Placement",
+      "provider": { "@id": "https://tryairesidency.com/#organization" },
       "description": "Vetted AI student and graduate placements embedded into your team for 4–12 weeks. Industry-specific use cases, onboarding, and AI literacy training.",
       "areaServed": "AU",
       "offers": {
@@ -43,6 +58,92 @@
           "unitText": "hour"
         }
       }
+    },
+    {
+      "@type": "HowTo",
+      "name": "How AI Residency vets specialists",
+      "description": "AI Residency runs a 3-stage vetting process. Fewer than 1 in 100 applicants make it onto the roster.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Application & screen",
+          "text": "We assess university background, prior AI experience, and the quality of work each applicant has actually shipped. Most are filtered out here."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Technical build challenge",
+          "text": "Applicants complete a real-world AI task on their own time. We score on prompting, problem-solving, and how clearly they communicate technical decisions."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Interview & references",
+          "text": "A final culture and communication interview, plus reference checks on past work. Only then do we add them to the roster."
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does it cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Engagements start at $30/hour and scale based on the seniority of the specialist and length of the placement. Most companies start with a 4-week sprint to test the model before extending. We'll scope the right fit when you get in touch."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if the placement doesn't work out?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your first week is a no-questions-asked trial. If it isn't the right fit, we'll replace the specialist or refund you in full. After that, you can cancel with 2 weeks notice. We've never had a placement go fully sideways, but the safety net is there."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you vet your specialists?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every applicant goes through a 3-stage process: application and screen, a real-world AI build challenge, and a culture interview with references. We accept fewer than 1 in 100 applicants. Most come from top Australian universities (UNSW, USYD, UMelb, Monash) or have early-career experience at AI-first companies."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do they work onsite or remote?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Whatever works for your team. Our specialists are happy to do any number of days onsite, or work fully remote. We match you with specialists who fit your preferred working style."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What about IP and confidentiality?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "All IP built during the placement is owned by your company. If you wish, your specialist can sign an NDA before they start. We can also sign your own NDA before the first introduction call if you prefer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if my industry is niche?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our specialists are generalists by training but quickly become domain experts during placements. We've matched people to fintech, retail, healthcare, logistics, and professional services briefs. If we don't have someone with direct experience, we find the best generalist match. They come up to speed fast."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I extend or convert to full-time?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes to both. You can extend a placement at any point if it's working well. If you want to convert a specialist to a full-time role, we charge a one-time conversion fee (similar to a recruitment placement fee). We'd rather you keep great talent than hold them back."
+          }
+        }
+      ]
     }
   ]
 }
@@ -891,7 +992,7 @@
         <span class="faq-icon">+</span>
       </div>
       <div class="faq-a">
-        Every applicant goes through a 4-stage process: written application, technical interview, a real-world AI build challenge, and a culture interview. We accept fewer than 1 in 100 applicants. Most come from top Australian universities (UNSW, USYD, UMelb, Monash) or have early-career experience at AI-first companies.
+        Every applicant goes through a 3-stage process: application and screen, a real-world AI build challenge, and a culture interview with references. We accept fewer than 1 in 100 applicants. Most come from top Australian universities (UNSW, USYD, UMelb, Monash) or have early-career experience at AI-first companies.
       </div>
     </div>
 
@@ -1028,6 +1129,7 @@
 <footer>
   <a href="#" class="logo"><span class="logo-dot"></span>AI Residency</a>
   <span>© <span class="current-year">2026</span> AI Residency · Australia</span>
+  <span>Last updated <span class="last-updated"></span></span>
 </footer>
 
 <script>
@@ -1146,6 +1248,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.querySelectorAll('.current-year').forEach(el => {
     el.textContent = now.getFullYear();
+  });
+
+  const lastMod = new Date(document.lastModified);
+  const lastModStr = lastMod.getDate() + ' ' + monthNames[lastMod.getMonth()] + ' ' + lastMod.getFullYear();
+  document.querySelectorAll('.last-updated').forEach(el => {
+    el.textContent = lastModStr;
   });
 
   const inEl = document.getElementById('tickets-in');
